@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://CollisionPolygon2D.gd" type="Script" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 96, 568 )
+script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
+position = Vector2( -4.00002, 1.52588e-05 )
+scale = Vector2( 1.40625, 0.624998 )
+polygon = PoolVector2Array( -25.6, -12.8, 25.6, -12.8, 25.6, 12.8, -25.6, 12.8 )
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+margin_left = -40.0
+margin_top = -7.99994
+margin_right = 32.0
+margin_bottom = 8.00006
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wall" type="StaticBody2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="wall"]
+margin_right = 40.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect3" type="ColorRect" parent="wall"]
+margin_left = 40.0
+margin_right = 984.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="wall"]
+margin_left = 984.0
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="wall"]
+position = Vector2( 20, 324 )
+scale = Vector2( 1.5625, 25.3125 )
+polygon = PoolVector2Array( -12.8, -12.8, -12.8, 10.9037, 12.8, 10.9037, 12.8, -11.2009, 616.675, -11.219, 616.96, 10.9037, 642.56, 10.9037, 642.56, -12.8 )
