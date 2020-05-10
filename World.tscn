@@ -1,13 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://CollisionPolygon2D.gd" type="Script" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://ball.png" type="Texture" id=3]
+
+[sub_resource type="PhysicsMaterial" id=1]
+friction = 0.0
+bounce = 1.0
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 96, 568 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
 position = Vector2( -4.00002, 1.52588e-05 )
@@ -25,6 +33,9 @@ __meta__ = {
 }
 
 [node name="wall" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="ColorRect" type="ColorRect" parent="wall"]
 margin_right = 40.0
@@ -53,3 +64,21 @@ __meta__ = {
 position = Vector2( 20, 324 )
 scale = Vector2( 1.5625, 25.3125 )
 polygon = PoolVector2Array( -12.8, -12.8, -12.8, 10.9037, 12.8, 10.9037, 12.8, -11.2009, 616.675, -11.219, 616.96, 10.9037, 642.56, 10.9037, 642.56, -12.8 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 192, 144 )
+physics_material_override = SubResource( 1 )
+gravity_scale = 0.0
+linear_velocity = Vector2( 0, 100 )
+linear_damp = 0.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2( -496, -504 )
+polygon = PoolVector2Array( 496, 488, 504, 488, 512, 496, 512, 512, 504, 520, 488, 520, 480, 512, 480, 496, 488, 488 )
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+scale = Vector2( 0.0732265, 0.0732265 )
+texture = ExtResource( 3 )
